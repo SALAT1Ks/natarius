@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тарифы</title>
+    <style>
+                * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+
+        }
+        body {
+            font-family:Arial, Helvetica, sans-serif;
+
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        #header_plus{
+            width: 100%;
+            height: 12vh; /* Высота 15% от высоты окна браузера */
+            display: flex;
+            justify-content: center; /* Горизонтальное выравнивание по центру */
+            align-items: center; /* Вертикальное выравнивание по центру */
+            padding: 0 1rem; /* Внутренние отступы для заголовка */
+            background: rgb(213, 233, 255);
+        }
+
+        #header {
+            display: flex;
+
+            width: 100%;
+            height: 12vh;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            background: rgba(128, 128, 128, 0.2); /* Полупрозрачный серый фон */
+            backdrop-filter: blur(2ch) saturate(180%); /* Размытие и насыщенность */
+            -webkit-backdrop-filter: blur(10px) saturate(180%); /* Поддержка для Safari */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Полупрозрачная граница для эффекта стекла */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            box-shadow: 0 1vh 1vh rgba(0, 0, 0, 0.1); /* Небольшая тень для глубины */
+        }
+
+        #information_header li{
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Центрирование текста внутри каждого элемента */
+            font-size: 2vh;
+            margin: 0 2rem; /* Установите отступы между элементами списка */
+        }
+
+        #adres_header li{
+            margin: 0;
+            margin-top: 1vh;
+        }
+
+
+
+        #time_work_header li{
+            margin: 0;
+            margin-top: 1vh;
+        }
+
+        #logo_messenger_header li{
+            margin: 10%;
+            margin-top: 1vh;
+        }
+
+        #number_header li{
+            margin: 0;
+            margin-top: 2vh;
+        }
+
+
+        #number_header a{
+            text-decoration: none;
+            color: #000;
+        }
+
+        #logo_heafer {
+            display: flex;
+            align-items: center;
+
+        }
+        #information_header {
+            display: flex;
+            flex-direction: column; /* Выровнять элементы по вертикали */
+            align-items: center; /* Центрирование элементов внутри контейнера */
+
+        }
+
+        #information_header ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            justify-content: space-between; /* Равномерное распределение элементов */
+        }
+
+        #place_header_logo {
+            float: left;
+            display: block;
+        }
+
+
+        #logotype {
+            display: flex;
+            align-items: center;
+            margin-right: 2rem; /* Отступ между логотипом и информацией */
+        }
+
+        #logotype img {
+            display: block; /* Убирает отступы изображения */
+            max-height: 100%; /* Максимальная высота изображения равна высоте контейнера */
+            height: auto; /* Высота автоматически подстраивается */
+        }
+
+        #information {
+            display: flex;
+            flex-direction: column; /* Выровнять элементы по вертикали */
+            align-items: center; /* Центрирование элементов внутри контейнера */
+        }
+
+        #information ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            justify-content: space-between; /* Равномерное распределение элементов */
+        }
+
+        #main {
+            width: 100%;
+            flex: 1;
+            background-color: rgb(213, 233, 255);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 2rem; /* Отступ сверху */
+        }
+
+        #footer {
+            width: 100%;
+            height: 25vh;
+            background-color: rgb(201, 214, 255);
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #information_footer li{
+            display: inline-block;
+        }
+
+        #footer_left {
+            margin-right: 15vw;
+            height: 100%;;
+
+        }
+
+        #footer_left li{
+            display: inline;
+            margin: 2vh;
+        }
+
+        #adres_footer {
+            color: #000;
+            text-align: right;
+        }
+
+        #adres_footer li{
+            margin: 0;
+            color: #000;
+            display: inline;
+        }
+
+        #piar a{
+            color: #000;
+            text-align: right;
+        }
+
+
+
+        #info_footer p{
+            text-align: right;
+            color:#000;
+
+        }
+
+        #footer_right {
+            margin-left: 15vw;
+
+        }
+
+        #footer_right li {
+            display: inline;
+            margin: 2vh;
+        }
+
+        #contacts_footer p{
+            text-align: left;
+            color:#000;
+
+        }
+
+        #logo_messenger_footer {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start; /* Добавлено это свойство */
+            width: 100%
+        }
+
+        #logo_messenger_footer img{
+            margin-top: 1vh;
+            align-self: flex-start; /* Добавлено это свойство */
+        }
+
+
+        #politice_footer {
+
+            display:inline-block;
+            text-align: left;
+            color: #000;
+
+        }
+
+
+
+
+        #information li {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Центрирование текста внутри каждого элемента */
+            font-size: 2vh;
+            margin: 0 3rem; /* Установите отступы между элементами списка */
+        }
+
+        #information a {
+            font-family: Arial;
+            font-size: 2vh;
+            color: rgb(255, 255, 255); /* Цвет текста */
+            text-decoration: none;
+            text-align: center; /* Центрирование текста внутри ссылок */
+        }
+
+
+
+
+        .window {
+            display: none;
+            position: fixed;
+            z-index: 100000;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .window-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 5vh;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 2vh;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: fadeIn 0.5s;
+            margin-top: 20vh;
+            max-width: 40vw;
+            max-height: 45vh;
+        }
+
+        #window_text h1{
+            text-align: center;
+        }
+        #window_text h5{
+            text-align: center;
+            color: #202020;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #icon_header_place {
+            margin-top: -3%; /* Добавить отступ сверху для иконок */
+            vertical-align: middle; /* Убедитесь, что иконки выровнены по центру по вертикали */
+        }
+
+
+        #menu_information {
+
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        #menu_information ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            justify-content: center; /* Центрирование элементов */
+        }
+
+        #menu_information li {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Центрирование текста внутри каждого элемента */
+            font-size: 2vh;
+            margin: 0 1rem; /* Установите отступы между элементами списка */
+            border: 1px solid black;
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 50vh;
+
+        }
+
+
+
+        #menu_information li:hover::before {
+            top:0;
+        }
+
+        #menu_information a {
+            font-family: Arial;
+            font-size: 2vh;
+            color: black; /* Цвет текста */
+            text-decoration: none;
+            text-align: center; /* Центрирование текста внутри ссылок */
+        }
+
+        .input-container {
+            width: 10vw;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 2vh;
+        }
+
+        .phone-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #fff;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        .phone-input:focus {
+            outline: none;
+            border-color: #6cb2eb;
+            box-shadow: 0 0 5px rgba(108, 178, 235, 0.5);
+        }
+
+
+        .custom-input {
+            width: 20vw;
+            height: 5vh;
+            margin-top: 3vh;
+            margin-left: 15vh;
+            margin-right: 15vh;
+        }
+
+
+
+        #send_meta {
+            font-size: 1.2rem;
+            margin-top: 5vh;
+            border: none;
+            border-radius: 2vh;
+            width: 15vw;
+            height: 7vh;
+            margin-left: 20vh;
+            margin-right: 20vh;
+            text-decoration: none;
+            color: white;
+            background: rgb(140, 167, 255);
+            box-shadow: 0 1vh 0 #9cbaff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #send_meta:hover {
+            font-size: 1.2rem;
+            background: #587ccf;
+            box-shadow: 2vh 1vh 2vh #98b1ec;
+            position: relative;
+        }
+
+        #required_doc {
+
+            width: 80vw;
+            margin-left: 10vw;
+            margin-right: 10vw;
+            margin-top: 5vh;
+            margin-bottom: 5vh;
+            max-width: 100%;
+
+        }
+
+        #required_doc p {
+            text-align: left;
+            text-align: start;
+            margin: 1vh;
+        }
+
+        #required_doc_item {
+            background-color: #ffffff;
+            border: 0.25vh solid #ccc;
+            margin-bottom: 1vh;
+            overflow: hidden;
+            border-radius: 2vh;
+        }
+
+
+
+        #required_doc_content {
+            background-color: #ffffff;
+            padding: 1vh;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+
+        }
+
+        #required_doc_title {
+                background-color: #ffffff;
+                background-color: #f1f1f1;
+                padding: 2vh;
+                cursor: pointer;
+        }
+
+        #main h1{
+            margin-top: 5vh;
+            margin-left: 5vh;
+        }
+
+        #required_doc_title p{
+            font-size: 2.5vh;
+
+        }
+        #required_doc_content p{
+            font-size: 2.1vh;
+            margin-left: 2vw;
+            margin-bottom:3vh;
+        }
+
+
+
+
+    </style>
+
+
+</head>
+
+<body>
+    <div id="header_plus"></div>
+
+    <div id="header">
+        <div id="information_header">
+            <ul>
+
+                <li>
+                    <div id="logo_header">
+                        <a href="#" >
+                            <img src="https://png.pngtree.com/png-vector/20190326/ourlarge/pngtree-notary-law-logo-png-image_868690.jpg" width="80vw" height="80vh">
+                        </a>
+                    </div>
+                </li>
+
+                <li>
+                    <div id="adres_header">
+                        <ul>
+                            <li>
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADdElEQVR4nO1aS0hUURg+vYuyltETCguyMu/5Ry2h7GFUi2oRbdpGkSRJbXITEkS7FkLl/Ge0RFq5Kdq0iUIKSaRNKq2i6KHl4/7/+KA07MaZ0R6Ycs6de68j9MEPw2XmP993/sec+c8I8R9pxO70r5MJPisVNYLil6CoVyr6DopGAakHFLWB4gZQdNqp610tsgVOnA9L5KegaAwUe2aWeu/jGHLZDBOnVnPSU4ppiVQIoLsCkO5lTnySNZTU9eaESr6gNrkJFL0Ogbw3Ho1OJ8G5oZAHdLdLpM/hkecJEV1OYmBLoOR115DIH8Inz2lD/lSk+tYGQh7QWzDeAqMhr35F4kVptTc/cwGKrkZPnicicSXD3XfXS6Svlgu/kuhWFqr+rfmN3Uu16df6mURut/Q1vKO2b00mu3/LIuTfALlcVHtzp/J3ssmbJxWfB6QRC781vsjrniyRB8zJ0z5T31LRfgsRrKNoLSCGdMIi1Ods/QNyhbl/97i1AKkobprz06XNtOmE3GEY4dv2AkzPOZi8IHwCkC6arCGRnvtx3mPivKB2IM+vgFhd/zYjAYq67QXowjRwnnfzyzK/AkrqenNMm4QPATxs4jyTE2RRTd9ywzob9CPgbdakEPIbPwKazZy7lWEXMSh+4kMAXTfcnXbdEm3968+Aok7DIr5mLSCGySOGu+Pp44Gtf91+wdz/IWsBuTXeIlDsGi2CNOLE6YD55nBZalqhTCJM/XlN3kLhB4CsTHcpdbZBrpgunVJpk9p5M/KQTp+4L/JpAcliYwG/a6JDF6fuMPo7Qlu629Al05yHPy3BRb4FpEQofma9aHDWLDJFDN1jMyXAibtHMxaQjgK1RE1eIrUKz5sTiAAn7u6JPAJo/gPJCBL5QYQC7ougoX/gA/JQBOSHixRtCFxAWgRXRSDgsggLetAUbkFTmx6kiTARq+eN5tMKm6LloUKV3CyigL6JCVqAVHRGRAlAfhhg6jwKrOebojgxuFKPwgMg36V9iZmAE0/ushsTTiI/KpW7W8wkUrNO/4VbLrIBUnG9j6JtFNmCnTfeL7G7BKG20rveYpFNABxaBcjvDAR8DOz6KGjoGREg09Rpw0kn4eaLbAYkaO+/OxONQoIPitkAQD71918PaEw/E7MJgFyebpX0w88FiMgGpI7fyFVhLvITkIvL/yjkLXQAAAAASUVORK5CYII=" width="20vw" height="20vh" >
+
+                            </li>
+                            <li>
+                                <a>
+                                    Г. Москва улица Пушкина<br>
+                                    дома им. Колатушкина
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <div id="time_work_header">
+                        <ul>
+                            <li>
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD5klEQVR4nO2bTUuVQRSAHwy8pqBgLrqpLUpcWC4ySO0PJNUfCPzaFUJFhqS7drWJ/kBo9g+CIkjLnW1Ls4VhG9OKbCGYCSnGxLkwHN/rx3tn3jtX3gcGLnLvmTNnvs45c4SUlJSUlJQkOQI0Aq1Ap7RW+VsZh5AGoA8YB2aADWA7T9uQ7zwFeoF6SpQKoB+YArZ2GfBezfz2rRgwQwlwFBgElvcY2LLM9LS0mX38Zgm4I30EyVXgS4Tim8Br4B7QAVTvIqNazgTz3Qn5rZa3AFwmIKpkf2tFF4Eh4HgBsrMiYzFC/pj0XVSagU9KsZ/AdaDcYT9G1g2Rbfc1BzRRJM4DP5RC5vSu9djnsYjVZnRoowiDX7WUWAO6E+y/R/rM9b+apBGa1cybZXkhhpwyGUhPTAeoHVix9PiexHaoUnveDL4lpqxeS44xQhxalBE+ApV4ZFwt+zgzn+O+Jct8jku72g6jeKJLHT5mBgnAAIZrSrcrOOaocnLMaU9ABtCr87O44864awk3e64uQAPUKj/hNo6oUH66cXII0ACGAUvmV1cBVL9yb8sDNkBGuc2FnlP/mbIEGr+cgA2A6JiTO+kimbElwv4WGNgkZYCsFUUa3U8UIqzPUtKEp5SAAZCZL9TJ2nG1mBi9VAwwrMLm2Mxagkwyo1QM0GnJ/hBXSBnwxxK0WyYnNANUW7LX42abT6ocnkvMdfXSkv/CQ9LzmyXfHOYHptUSYJKWLnkckeJ6LudMvnbQsNnevmcK3UfTuOVXhAH20w5yok9bvzNjCcoASzEN0J2kAVo9boEHEYN7BTzcpXUnvQUaPR6C5WKEJYkuH3k+BOtDvAZ9UuPiGtTLKNY+KhIXXThCSObHlyvskxFXOcJej8GQT97EvDl2UK/CYRNqho4Oh7MurTlE+Ay5XrV9nlJiPshILtBJLsAWantu5pU2VAbUZDnzLQY9pMVdo9PiN10/jCxYwk2mKDSeWfrN+6gpuqR8dycpZ0fopzFvJTRjVidr8jBZbEyq7rel1xPfz+Nz6jyI+zzuAv08PpNEFVmTKpBYKdJK6FCDN9HfqaQ6b4sokUnyTOhTy97oco6EaZOylG11O5hCJl/UqdM+N/OJDz7HaSlLsRVaEYfE5TWUEZn2ks/t+cSWfT4qJeTMVyiZdVAoabu39mkfVNlsl1RmaEU35a1uWJIqJluTjxpJZoxIEBZVKjsvPkmQVEhlRtSM6X07K5nbd/LZzuFt51lRt0qlajwjt8Kkg3L5CYnqQo5C99zHPeJFvleJVt3W5TujkslxWY8QDGXyVndWnJkO+dxwWP9lJiUlJSWFQPkHmYAZKHCWZDwAAAAASUVORK5CYII=" width="20vw" height="20vh">
+                            </li>
+                            <li>
+                                <p>
+                                    Пнд-Пят<br>
+                                    9:00-16:00
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <div id="logo_messenger_header">
+                        <ul>
+                            <li>
+                                <a href=""><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telegram_2019_Logo.svg/2048px-Telegram_2019_Logo.svg.png" alt="tg" width="40vh" id="icon_footer_place"></a>
+
+                            </li>
+
+                            <li>
+                                <a href=""><img src="https://cdn.icon-icons.com/icons2/2429/PNG/512/whatsapp_logo_icon_147205.png" alt="tg" width="40vh" id="icon_footer_place"></a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </li>
+
+                <li>
+                    <div id="number_header">
+                        <a href="#">
+                            <ul>
+                                <li>
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADS0lEQVR4nO2ZS0hUURjHf6ZZGJWUVqYWGbQSMlpkRYtE2oRBRAVFmGIYZLWM1tKqwih6CLWpXUXagx4LSVr0EiwhIm3Rg4qg1J5oz4lD/wuHYebOXBnvnIH5wd3M/c7c79x7vv/5vu9AlixpZR3QA4wCfcByMox84DgQibqGgVIyhOlAlxwfAVqAIuCyfrtOBjAHeCyH3wJLo+591L1GHGYa0CtHnwLzY9hs1f1PwDwcZBJwR04+AWb62Ha4vMQOyLlXQFkCW7PEBmVfj2MMybHVSdpvk70ZV4JDjMqxwgBjrmmMWWrO8FxOVQYYU6agN+M24wgdcsioUhB2aFw/jtAih84GHFekcb+BHBxgIfAX+AJMDTBuuyZi8jFn6JJTO5O0nwy8dFGGN1nrPS8J+/2yfwRMwCFylZoY55oT2M4CPsu2FgfZIOfeAQU+du2yMxmxk+QAD+TkQZ/Y+CqbJhxmCfAT+AOsimOzxyq0FuAwrVbgF8T5cldl8zDBMkx7qdsnR03JG4tCSxw6JRZOUqVS1zja4LORfpBNuyu7eywarNp9WUyL/50VL/jbcJijliTH66DUWF/vMI4yEbgtJ+/6BHad1C6iitNJioEXcvKGxCAWG63JtLkaM4uA93LyvI9K1VnL7JSrarZYm6Bx8rTPG6+xBKAzznLMlZiYpNNsvgNKXENjBfAticCutqS5J6pPVmvtU9HXRWA2IbEG+GFNJt6XqbA2zSGVxl5GEFHcmVqmSPe8jNp0NLeENZn11mTO+MSCyQCuRL114/A+JaA25RITz65DfbRQvoy3zC74qJn5YrsVNydVz/jRaMXioPpo485K66E3EySQpjWbLKVW7yyiJTmXEPIyT5rvpbj7WG91Qod9UqWU7jNeM+JNih9YYomEketQMoBuPXDUJ2seCzP0v98JMTc7Zq3tEykqvPZa+V6oNFjN8QGJwliptqR+LWmgytrBTRpyCJgS8D8qLCE5QhrJVw/gl1XXNCfZBCwGnmncLS3btGMOVu9bsdOv9my8XnO5ld70BuxJjzs5agJ6bzmixvk5HWlU6njcZM+vLbkNLYkMSp4Oh7p0ChCJc3VrYhmBCeZdwCWp24iy39aAKU2WLKSQf3jSBy3qRwNwAAAAAElFTkSuQmCC" width="20vw" height="20vh">
+                                </li>
+                                <li>
+                                    +7 966 777 77 77
+                                </li>
+                            </ul>
+
+                        </a>
+
+                    </div>
+
+                </li>
+
+                <li>
+                    <div id="call_app">
+                        <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEzUlEQVR4nO2aWYhcRRSGv+lJRGNGk3Em6jgSNbgkEQSfFBGNSzQqmLhHMSKKDy4PPgjiRiZBogZ3g7ihoj4oBDGLuyKCGzqJGwhxCS4TjTGMGYeoMZOWA/+FY3FvT/ftnunb1/tDvdxzqrrO31XnnDpVUKBAgQIFCoyGbmApsA4YBsoZbcOa4xLNuSE4F9iWAeNqbTbnBY0wfkQDvgicAOxJdmFzOxF4SXMeqYeEae6fv4HWw42a++9AV5oBlrp/vlWxSjb0pen8qTrbsq8GHcBDwBZgK7ACmEJzMUc2mGOsGUPqPLkK3U7goxhH9DZQonno0DzMlppRVhsNuwMfS/db4CjgUGBA366nuajWjtQd+6T3PdDrvp+h79uBI8gpARO0301vboz8Cck+ANrJIQHHS+fzBPleWhllhaXcEXCrdJZV0DkV2AX8BRxJzgi4TzpXjqL3sPTWAxPJEQGPSWfhKHoWSr+T7jXkiIC7pHNbFeNdJN03yREBF0tnbRXjXSHdV8gRAd3ADuAfYHoFvcOAQY13KTlLhFZKzxxiUij8SjovAG3kjICjFeYs4zugwonssybVEsacAMNz0n2U/2IfN848moNxIeAgJTo7gZmB7CmN8yWwBzklwHCv9G3Jh0flnyW7nxwT0OUORhcGstNVnzNfcSY5IaBDhvqCySL1+TWmDrdMMiNpFi1OwPmu4HFLIFur78/HHJ1XS/ZDUDtoKQJ6nexD4OBAfqAqsSa/NpBNUh+TfQFMpQUJKOlfX1Sh3jdf+/1v4NhAZltjg8Z+bxxIGBcnWIpZ0tGe/wnoCWSHAJvcSuhtZQJ6gHeke7L7biWwN5yRFg5DEjY4nzCrFQmYBvwivYEYfzDF3S+8H5MKdzufsLVCiFwoB/qyii/tWSJgk5KfpNvY/YBvNNbrMSRMctHB/MYDKrWjzPFZN5eyK7Ie3kA7GttRtb+JwXIfcCuhMyZE3iECoiKrVZk/cRcbVwOXAT/q23bdOZSyREAJeFD9bg9ktj2+dueCuJPjPJc2R836zHY6ewNPOvm7wIwG25G64wr1+RM4JWE7RD7BVsRxMTq2Op6WzqsVwuRZLpIMa4W0NZuA1cBvuqNPgjnG1zS2VZOuS9Cr5oVHpzuKR4RZAaZpBLQDuwXfzLPfGfiEdm2RXa5SVM+TlnOAzQknzqY4wQhzlQ2WE7z22a5WuEVF1rSYrXFsW2SCgA53xW7l80qJVFQ2s7YmZVI002WemSBggk6EdwfOyVbCaTH6l8h/lFVZeryGFLnHZZWPZGkLxE10s/a+RYQQ5vGXK4pEsX65TphJMIe7Ufr9CpOZJeAtlxFWKo9PDzLAHdomNwEXAJfrXUK/c6TrEh5DZYaAkipFtkf3dd9n6GotDF+GY2T4zph0OGrbFFGSCq6ZISCK21ODcNiv3zmPZOyv+sM98ivP6BXbnCpumzNFQIir9BsbdSgaC2SagD5Viy2tHSuktmOohmdyadGW9hVnjc/kzE/UjPXqXCmvzzpOcuGxZixRZ3t43KpYIxsWp+nc7R5LN+uFVz24WXMf1CVtKixwz+VXKeyMpU+oF5O17KN/fkQHrrow3110tFIbbITxEbpc6vlHBoxLakOqIy6uZ9kXKFCgQAH+J/gXbHqHI3GXPgAAAAAASUVORK5CYII="></a>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="call_app_window" class="window">
+        <div class="window-content">
+            <span class="close">&times;</span>
+            <div id="window_text">
+                <h1>Закажите обратный звонок</h1>
+                <h5>Мы перезвоним и ответим на все ваши вопросы</h5>
+
+                <div id="send_info">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" id="send_meta">Заказать звонок</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="main">
+        <div id="menu_information">
+
+            <ul>
+                <li>
+                    <a href="tariffy" >тарифы</a>
+                </li>
+                <li>
+                    <a href="required_documents">необходимые документы</a>
+                </li>
+                <li>
+                    <a href="about" >о нас</a>
+                </li>
+                <li>
+                    <a href="contacts" >контакты</a>
+                </li>
+                <li>
+                    <a href="index">на главную</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <h1>
+            <p>
+                Необходимые документы
+            </p>
+        </h1>
+
+        <div id="required_doc">
+            <div id="required_doc_item">
+                <div id="required_doc_title">
+                    <p>
+                        1
+                        <img src="https://img.icons8.com/?size=100&id=JmWSCorkiyYP&format=png&color=000000" style="position: relative; top: 0.75vh;" height="35vh" width="35vw">
+                        Брачный договор
+                     </p>
+                </div>
+                <div id="required_doc_content">
+                    <p>
+                        1. Паспорта сторон <br>
+                        2. Если стороны уже в зарегистрированном браке – оригинал свидетельства о браке
+                    </p>
+                </div>
+            </div>
+
+            <div id="required_doc_item">
+                <div id="required_doc_title">
+                    <p>
+                        2
+                        <img src="https://img.icons8.com/?size=100&id=JmWSCorkiyYP&format=png&color=000000" style="position: relative; top: 0.75vh;" height="35vh" width="35vw">
+                        Для наследства
+                        </p>
+                </div>
+                <div id="required_doc_content">
+                    <p>
+                        1. Паспорта сторон <br>
+                        2. Если стороны уже в зарегистрированном браке – оригинал свидетельства о браке
+                    </p>
+                </div>
+            </div>
+
+
+            <div id="required_doc_item">
+                <div id="required_doc_title">
+                    <p>
+                        3
+                        <img src="https://img.icons8.com/?size=100&id=JmWSCorkiyYP&format=png&color=000000" style="position: relative; top: 0.75vh;" height="35vh" width="35vw">
+                        Для удостоверения верности копии с подлинника документа
+                        </p>
+                </div>
+                <div id="required_doc_content">
+                    <p>
+                        1. Паспорта сторон <br>
+                        2. Если стороны уже в зарегистрированном браке – оригинал свидетельства о браке
+                    </p>
+                </div>
+            </div>
+
+            <div id="required_doc_item">
+                <div id="required_doc_title">
+                    <p>
+                        4
+                        <img src="https://img.icons8.com/?size=100&id=JmWSCorkiyYP&format=png&color=000000" style="position: relative; top: 0.75vh;" height="35vh" width="35vw">
+                        Доверенность от физического лица
+                        </p>
+                </div>
+                <div id="required_doc_content">
+                    <p>
+                        1. Паспорта сторон <br>
+                        2. Если стороны уже в зарегистрированном браке – оригинал свидетельства о браке
+                    </p>
+                </div>
+            </div>
+
+            <div id="required_doc_item">
+                <div id="required_doc_title">
+                    <p>
+                        5
+                        <img src="https://img.icons8.com/?size=100&id=JmWSCorkiyYP&format=png&color=000000" style="position: relative; top: 0.75vh;" height="35vh" width="35vw">
+                        Доверенность от юридического лица
+                        </p>
+                </div>
+                <div id="required_doc_content">
+                    <p>
+                        1. Паспорта сторон <br>
+                        2. Если стороны уже в зарегистрированном браке – оригинал свидетельства о браке
+                    </p>
+                </div>
+            </div>
+
+
+            <div id="required_doc_item">
+                <div id="required_doc_title">
+                    <p>
+                        6
+                        <img src="https://img.icons8.com/?size=100&id=JmWSCorkiyYP&format=png&color=000000" style="position: relative; top: 0.75vh;" height="35vh" width="35vw">
+                        Договор дарения
+                        </p>
+                </div>
+                <div id="required_doc_content">
+                    <p>
+                        1. Паспорта сторон <br>
+                        2. Если стороны уже в зарегистрированном браке – оригинал свидетельства о браке
+                    </p>
+                </div>
+            </div>
+
+            <div id="required_doc_item">
+                <div id="required_doc_title">
+                    <p>
+                        8
+                        <img src="https://img.icons8.com/?size=100&id=JmWSCorkiyYP&format=png&color=000000" style="position: relative; top: 0.75vh;" height="35vh" width="35vw">
+                        Договор купли-продажи недвижимого имущества физические лица
+                        </p>
+                </div>
+                <div id="required_doc_content">
+                    <p>
+                        1. Паспорта сторон <br>
+                        2. Если стороны уже в зарегистрированном браке – оригинал свидетельства о браке
+                    </p>
+                </div>
+            </div>
+
+
+            <div id="required_doc_item">
+                <div id="required_doc_title">
+                    <p>
+                        9
+                        <img src="https://img.icons8.com/?size=100&id=JmWSCorkiyYP&format=png&color=000000" style="position: relative; top: 0.75vh;" height="35vh" width="35vw">
+                        Договор купли-продажи недвижимого имущества юридические лица
+                        </p>
+                </div>
+                <div id="required_doc_content">
+                    <p>
+                        1. Паспорта сторон <br>
+                        2. Если стороны уже в зарегистрированном браке – оригинал свидетельства о браке
+                    </p>
+                </div>
+            </div>
+
+
+            <div id="required_doc_item">
+                <div id="required_doc_title">
+                    <p>
+                        10
+                        <img src="https://img.icons8.com/?size=100&id=JmWSCorkiyYP&format=png&color=000000" style="position: relative; top: 0.75vh;" height="35vh" width="35vw">
+                        Займ физические лица
+                        </p>
+                </div>
+                <div id="required_doc_content">
+                    <p>
+                        1. Паспорта сторон <br>
+                        2. Если стороны уже в зарегистрированном браке – оригинал свидетельства о браке
+                    </p>
+                </div>
+            </div>
+
+
+            <div id="required_doc_item">
+                <div id="required_doc_title">
+                    <p>
+                        11
+                        <img src="https://img.icons8.com/?size=100&id=JmWSCorkiyYP&format=png&color=000000" style="position: relative; top: 0.75vh;" height="35vh" width="35vw">
+                        Залоги (ипотека)
+                        </p>
+                </div>
+                <div id="required_doc_content">
+                    <p>
+                        1. Паспорта сторон <br>
+                        2. Если стороны уже в зарегистрированном браке – оригинал свидетельства о браке
+                    </p>
+                </div>
+            </div>
+
+            <div id="required_doc_item">
+                <div id="required_doc_title">
+                    <p>
+                        12
+                        <img src="https://img.icons8.com/?size=100&id=JmWSCorkiyYP&format=png&color=000000" style="position: relative; top: 0.75vh;" height="35vh" width="35vw">
+                        Обеспечение доказательств
+                        </p>
+                </div>
+                <div id="required_doc_content">
+                    <p>
+                        1. Паспорта сторон <br>
+                        2. Если стороны уже в зарегистрированном браке – оригинал свидетельства о браке
+                    </p>
+                </div>
+            </div>
+
+
+            <div id="required_doc_item">
+                <div id="required_doc_title">
+                    <p>
+                        13
+                        <img src="https://img.icons8.com/?size=100&id=JmWSCorkiyYP&format=png&color=000000" style="position: relative; top: 0.75vh;" height="35vh" width="35vw">
+                        Опцион
+                        </p>
+                </div>
+                <div id="required_doc_content">
+                    <p>
+                        1. Паспорта сторон <br>
+                        2. Если стороны уже в зарегистрированном браке – оригинал свидетельства о браке
+                    </p>
+                </div>
+            </div>
+
+            <div id="required_doc_item">
+                <div id="required_doc_title">
+                    <p>
+                        14
+                        <img src="https://img.icons8.com/?size=100&id=JmWSCorkiyYP&format=png&color=000000" style="position: relative; top: 0.75vh;" height="35vh" width="35vw">
+                        Отчуждение долей в ООО
+                        </p>
+                </div>
+                <div id="required_doc_content">
+                    <p>
+                        1. Паспорта сторон <br>
+                        2. Если стороны уже в зарегистрированном браке – оригинал свидетельства о браке
+                    </p>
+                </div>
+            </div>
+
+
+            <div id="required_doc_item">
+                <div id="required_doc_title">
+                    <p>
+                        15
+                        <img src="https://img.icons8.com/?size=100&id=JmWSCorkiyYP&format=png&color=000000" style="position: relative; top: 0.75vh;" height="35vh" width="35vw">
+                        Регистрация залога движимого имущества
+                        </p>
+                </div>
+                <div id="required_doc_content">
+                    <p>
+                        1. Паспорта сторон <br>
+                        2. Если стороны уже в зарегистрированном браке – оригинал свидетельства о браке
+                    </p>
+                </div>
+            </div>
+
+            <div id="required_doc_item">
+                <div id="required_doc_title">
+                    <p>
+                        16
+                        <img src="https://img.icons8.com/?size=100&id=JmWSCorkiyYP&format=png&color=000000" style="position: relative; top: 0.75vh;" height="35vh" width="35vw">
+                        Согласие на выезд ребенка за границу
+                        </p>
+                </div>
+                <div id="required_doc_content">
+                    <p>
+                        1. Паспорта сторон <br>
+                        2. Если стороны уже в зарегистрированном браке – оригинал свидетельства о браке
+                    </p>
+                </div>
+            </div>
+
+
+
+            </div>
+    </div>
+
+    <div id="footer">
+
+        <div id="information_footer">
+            <ul>
+
+                <li>
+                    <div id="footer_left">
+                        <ul>
+                            <li>
+                                <div id="adres_footer">
+                                    <ul>
+                                        <li>
+                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADdElEQVR4nO1aS0hUURg+vYuyltETCguyMu/5Ry2h7GFUi2oRbdpGkSRJbXITEkS7FkLl/Ge0RFq5Kdq0iUIKSaRNKq2i6KHl4/7/+KA07MaZ0R6Ycs6de68j9MEPw2XmP993/sec+c8I8R9pxO70r5MJPisVNYLil6CoVyr6DopGAakHFLWB4gZQdNqp610tsgVOnA9L5KegaAwUe2aWeu/jGHLZDBOnVnPSU4ppiVQIoLsCkO5lTnySNZTU9eaESr6gNrkJFL0Ogbw3Ho1OJ8G5oZAHdLdLpM/hkecJEV1OYmBLoOR115DIH8Inz2lD/lSk+tYGQh7QWzDeAqMhr35F4kVptTc/cwGKrkZPnicicSXD3XfXS6Svlgu/kuhWFqr+rfmN3Uu16df6mURut/Q1vKO2b00mu3/LIuTfALlcVHtzp/J3ssmbJxWfB6QRC781vsjrniyRB8zJ0z5T31LRfgsRrKNoLSCGdMIi1Ods/QNyhbl/97i1AKkobprz06XNtOmE3GEY4dv2AkzPOZi8IHwCkC6arCGRnvtx3mPivKB2IM+vgFhd/zYjAYq67QXowjRwnnfzyzK/AkrqenNMm4QPATxs4jyTE2RRTd9ywzob9CPgbdakEPIbPwKazZy7lWEXMSh+4kMAXTfcnXbdEm3968+Aok7DIr5mLSCGySOGu+Pp44Gtf91+wdz/IWsBuTXeIlDsGi2CNOLE6YD55nBZalqhTCJM/XlN3kLhB4CsTHcpdbZBrpgunVJpk9p5M/KQTp+4L/JpAcliYwG/a6JDF6fuMPo7Qlu629Al05yHPy3BRb4FpEQofma9aHDWLDJFDN1jMyXAibtHMxaQjgK1RE1eIrUKz5sTiAAn7u6JPAJo/gPJCBL5QYQC7ougoX/gA/JQBOSHixRtCFxAWgRXRSDgsggLetAUbkFTmx6kiTARq+eN5tMKm6LloUKV3CyigL6JCVqAVHRGRAlAfhhg6jwKrOebojgxuFKPwgMg36V9iZmAE0/ushsTTiI/KpW7W8wkUrNO/4VbLrIBUnG9j6JtFNmCnTfeL7G7BKG20rveYpFNABxaBcjvDAR8DOz6KGjoGREg09Rpw0kn4eaLbAYkaO+/OxONQoIPitkAQD71918PaEw/E7MJgFyebpX0w88FiMgGpI7fyFVhLvITkIvL/yjkLXQAAAAASUVORK5CYII=" width="20vw" height="20vh" >
+                                        </li>
+                                        <li>
+                                            <a>
+                                                Г. Москва улица Пушкина<br>
+                                                дома им. Колатушкина
+                                            </a>
+
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </li>
+
+                            <li>
+                                <div id="info_footer">
+                                    <p>
+                                        <p>Copyright © 2024 - SALAT_ORG<br>
+                                            Нотариальная контора нотариуса города<br>
+                                            Ултра МСК</p>
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div id="piar">
+                                    <a href="">
+                                        <p>created by SALAT1KsS</p>
+                                    </a>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                </li>
+
+                <li>
+                   <div id="footer_center">
+                        <a href="#">
+                            <img src="https://png.pngtree.com/png-vector/20190326/ourlarge/pngtree-notary-law-logo-png-image_868690.jpg" width="100vw" height="100vh">
+                        </a>
+                   </div>
+                </li>
+
+                <li>
+                    <div id="footer_right">
+                        <ul>
+                            <li id="contacts_footer">
+                                <p>
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADX0lEQVR4nO2ZPWgUQRSAn/iDRqJF1EZ7xSLozu3MGfwDW9FKBbHUysJCK/8VxcYUIoizxBgUQYSggmhSJV5u5hKMmdlcNBiNGiURkri7Caio4MidRG5v97JpvJvF+2C6Y5mP997ue+8AqlSp8n+w556av/G6s9WgXiOy3CGDetOIukdBZ7Z1vFuMLGc3ol4zstwJZHnKd6j7K0E9E3SEZOxdhNlvE7fH/ZcOnqegG5jL04RLlTvm4zdRAsqwpnaCThAmp2YECLNV4ubn2QWoN5CrEdAFzOTLvwK5KDx8FxkFRN2DoAuYicOFArirX6EmN0LAG62/9Wkp6ADq7a0hTEz6otD6cQ5R8E6BLmAuzhcKkFRWoRtOVC1M4yuTy0AHNjG5CnPxzReFB+/nUgsG6AJh8rovCmlboZbJ2QSebzujFoAuJLlYTZj84ivo9lclLu8+Q3R6BegGYeKiLwpcqsTdseLiTSHqLAcdwd3dywiXY4GCbp75uLntiI7WgM6QjNxXHAXcNqQMy51saJqohTiAmXhSLGG2jgxDXEhysRpz4fiiwOTPhp7+BMQFkhYHAqnExRuzp6cO4gJh8k5AgsnO9QMDiyAO1Eu5lHA5UCxBmGwBpeZBHNjE+tcRJr2QdLoMcYFkxHbCxPeghDwNcYGkxaFAKv2RODPXZyCqFpqWu6FiX3KSESfCJAiTV6Nqwrw6VWdQr2+mFUeWd7IiQxHm4lIJiZZSb6fc3IByDWCwHR83qHOk7F0tYeJsaDoxmd6c6ltZ+Ntk44clhuV1zj5buIOIenvKKoG5fbyExOskt/ODTq53yjeAUYOR9XfK6yjr8ixf2Ez+CJH4abaOjCDLc+Z6eVSwATSoe6xsEiazdxAu3dBotA2pxI3Z90wo/HhQThJpey3hIhta3KlscCiyoo47BJVoOzCXt0Mlcu1426uoGbuwFhqhUpi8b3+plCJpW5kP30evbCxnC1QS3G2vwUw8LhUN3JX9szwL2wBSd1yb3WuSi72Yy9GSIqmsMu+PKNRUEBHqNYNONKQHazGTF4pXNj6RtK3wo2GVuJX7f8LZDdqOqUxcw0x+LSnC5PD6e5oPS5tTfSsJE+cIkxMBiYy9C+IC6u2tya/2mXyRf2tlxIlK36lKlSrwb/kNl0b38qyYGTIAAAAASUVORK5CYII=" height="15vh" width="15vw"> +7 966 777 77 77<br><br>
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACLklEQVR4nO2XP2hUQRDGNyoIihERsVAbURBEc7dzOTGgotgoWKa1tLXTMpZ2cgjezZwRSZlWrEKKFIJFQEEQBEEQJaAvb+adiBrRldF33kMTcn+8vL1zf7DweLeP/b6b2dlZYwKBQCCQB0DihmGYoTNiBhQIRjwDhj8izo0Y33EtjWsaAZTFYi0+bTwF6lK2xI/WN9IsacgPStNy0HhC6d7yAUs8A8jfV9O7WkRuAfGKvrPInyzKzXIlGs3LQLkSjaoG1fJLK6+oxnWNKIVqchhIZpu/WeLIYnx1ctZt3jAHU24TUHzZEi+1dMjcOC0f7bhqAfJZi/Ikk27PoZ5c7LcHS3wOSJ5m1y1hcqG38tvmP/MvKHSRCR2fI8dnlrYD8o0/chUL0409vRo4dkd26T4A4s9pBL4AcQUw3tm3A7FM0f5s9QCSGEiuH6q4rZ0aODPltti6XAHkd91WS+j1ZG/W899pgPwCUCbb/b6Ect6iPGsZkEVL8al8WhTnRlQ8kLzKCJovVOOxNRfGxhGL/DDTgr/RqOheNHn3WoBvt2l6WZRGun++afqdqH/Y25wzfjvZrXlvib+ma37UfTFx9/0O75rGsWq0D0juq5G0uiWAfE3Hz+fUpM7Rud53v4BsgWTh75scPy7WkpMD18YXa/ElIH5pUV7rWdSPzho26j6iZbmb0twu/8HFasCAYMQzIETEMyBExDMgRMQzIETE94jAgA8zNEYCgUAgYHLgBy27+8ZWjpvEAAAAAElFTkSuQmCC" height="20vh" width="20vw" id="icon_header_place"> fwewe@mail.ru</p>
+
+                            </li>
+
+                            <li id="logo_messenger_footer">
+                                <ul>
+                                    <p>
+                                        <li>
+                                            <a href=""><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telegram_2019_Logo.svg/2048px-Telegram_2019_Logo.svg.png" alt="tg" width="40vh"  height="40vh"></a>
+
+                                        </li>
+                                        <li>
+                                            <a href=""><img src="https://cdn.icon-icons.com/icons2/2429/PNG/512/whatsapp_logo_icon_147205.png" alt="tg" width="40vh" height="40vh" ></a>
+
+                                        </li>
+                                    </p>
+
+                                </ul>
+
+                            </li>
+
+                            <li id="politice_footer">
+                                <p>
+
+                                    Политика компании в отношении<br> обработки персональных данных
+
+                                </p>
+                            </li>
+                        </ul>
+
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const modal = document.getElementById("call_app_window");
+            const btn = document.getElementById("call_app");
+            const span = document.getElementsByClassName("close")[0];
+
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var eventCalllback = function(e) {
+            var el = e.target,
+              clearVal = el.dataset.phoneClear,
+              pattern = el.dataset.phonePattern,
+              matrix_def = "+7 (___) ___-__-__",
+              matrix = pattern ? pattern : matrix_def,
+              i = 0,
+              def = matrix.replace(/\D/g, ""),
+              val = e.target.value.replace(/\D/g, "");
+            if (clearVal !== 'false' && e.type === 'blur') {
+              if (val.length < matrix.match(/([\_\d])/g).length) {
+                e.target.value = '';
+                return;
+              }
+            }
+            if (def.length >= val.length) val = def;
+            e.target.value = matrix.replace(/./g, function(a) {
+              return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
+            });
+          }
+          var phone_inputs = document.querySelectorAll('[data-phone-pattern]');
+          for (let elem of phone_inputs) {
+            for (let ev of ['input', 'blur', 'focus']) {
+              elem.addEventListener(ev, eventCalllback);
+            }
+          }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionItems = document.querySelectorAll('#required_doc_item');
+
+            accordionItems.forEach(item => {
+                const title = item.querySelector('#required_doc_title');
+                const content = item.querySelector('#required_doc_content');
+
+                title.addEventListener('click', function() {
+                    const isOpen = item.classList.toggle('required_doc_open');
+
+                    if (isOpen) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    } else {
+                        content.style.maxHeight = null;
+                    }
+                });
+
+                // При загрузке страницы закрываем все плашки
+                content.style.maxHeight = null;
+            });
+        });
+
+    </script>
+
+
+</body>
+
+</html>
