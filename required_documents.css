@@ -1,0 +1,153 @@
+/*! начало мэина !*/
+
+.required_documents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#required_doc {
+    background-color: rgb(201, 214, 255);;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    max-width: 90%;
+    padding: 2%;
+    border-radius: 2vh;
+    text-align: center;
+    justify-content: center;
+
+}
+
+#required_doc p {
+    text-align: left;
+    text-align: start;
+    font-size: 1.5rem;
+}
+
+#required_doc_item {
+    background-color: #ffffff;
+    border: 0.25vh solid none;
+    overflow: hidden;
+    border-radius: 2vh;
+    margin-bottom: 1rem;
+}
+
+#titile-svg {
+    margin-right: 0.5rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    fill:rgb(41, 175, 253);
+}
+#required_doc_item {
+    align-items: center;
+}
+#required_doc_title {
+    display: flex;
+    transition: color 0.5s ease, border-color 0.5s ease;    
+}
+#left-title {
+    display: flex;
+    margin: 0;
+}
+
+
+#required_doc_content {
+    background-color: #ffffff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+#required_doc_content li{
+    margin-left: 3rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+#required_doc_content p {
+    font-size: 1.3rem;
+}
+
+#required_doc_title {
+    background-color: #ffffff;
+    background-color: #f1f1f1;
+    padding: 2%;
+    margin-bottom: 1%;
+    cursor: pointer;
+    display: flex;
+}
+
+.title-h1{
+    margin-top: 4rem;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+
+
+
+
+/*! конец мэина !*/
+
+
+
+
+/*! начала медиа !*/
+
+@media screen and (max-width: 840px) {
+    .title-h1 {
+        font-size: 0.9rem;
+    }
+
+    #required_doc_title p {
+        font-size: 1rem;
+    }
+
+    #required_doc_content li{
+        margin-left: 2rem;
+        margin-right: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    #required_doc_content p{
+        font-size: 0.9rem;
+    }
+
+    #titile-svg {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+}
+
+@media screen and (max-width:1100px) {
+
+    .title-h1 {
+        font-size: 1rem;
+    }
+
+    #required_doc_title p {
+        font-size: 1.2rem;
+    }
+
+    #required_doc_content li{
+        font-size: 1rem;
+    }
+
+    #required_doc_content p{
+        font-size: 1rem;
+    }
+
+    #titile-svg {
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+}
+
+@media screen and (min-width:1100px){
+
+
+}
+
+/*! конец медиа !*/

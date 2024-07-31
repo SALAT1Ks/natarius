@@ -1,0 +1,616 @@
+.checkbox-container {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+#submitButton {
+    border: none;
+    cursor: not-allowed;
+}
+
+#submitButton:enabled {
+    cursor: pointer;
+}
+
+
+/*! начало мэина !*/
+
+            /*! для колонки тарифа вниз
+            flex-direction: column;
+            align-items: flex-start;
+            !*/
+
+.main-menu-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-menu-container img {
+    display: block;
+    height: auto;
+}
+
+.main-menu-container p {
+    position: absolute;
+    top: 60vh;
+    left: 45vw;
+    margin: 0;
+    padding: 10px;
+    border-radius: 1vh 1vh 1vh 1vh;
+    color: white;
+    background: rgba(92, 104, 121, 0.5); /* Полупрозрачный черный фон для текста */
+    font-size: 1rem; /* Можно подкорректировать размер текста */
+}
+
+
+.tariff_index {
+    margin-top: 5rem;
+}
+
+.tariff-content {
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.container {
+    display: flex;
+    background-color: rgb(201, 214, 255);
+    justify-content: center;
+    padding: 3%;
+    border-radius: 2vh; 
+    max-width: 85%;
+
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px; 
+}
+
+.buttons a {
+    height: 8vh !important;
+    width: 30vw !important;
+    display: flex;
+    border: 0;
+    align-items: center;
+    padding: 1rem;
+    background: linear-gradient(45deg, #4f6be9 0%, #25eefc 100%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 1vh;
+    transition: all 2s ease;
+    position: relative;
+    margin: 1vh;
+    font-size: 1rem;
+    text-align: left;
+
+}
+
+.buttons a:hover {
+    background: linear-gradient(45deg, #002aff 0%, #02eeff 100%);
+}
+
+.buttons a:focus {
+    background: linear-gradient(-45deg, #4f6be9 0%, #25eefc 100%);
+}
+
+#output-container {
+    display: flex;
+}
+
+#output {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Добавляем вертикальную прокрутку */
+    max-height: 120vh;
+ }
+
+.tariff-content {
+    display: flex;
+    flex-direction: row; /* Размещаем кнопки и #output в строку */
+}
+
+.container-tariff-text {
+    display: none; /* Если это не нужно, можно оставить как есть */
+}
+
+/* Стили таблицы */
+table {
+    background-color: #ffffff;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-top: 2vh;
+    border: 1px solid black;
+}
+
+th, td{
+    background-color: #ffffff;
+    border: 1px solid black;
+    padding: 1vh;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+.info-main {
+    display: flex;
+    justify-content: center;
+}
+.info-main svg{
+    fill:rgb(41, 175, 253);
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.info-main a{
+    text-decoration: none;
+    color: black;
+}
+
+.info-container {
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+    max-width: 85%;
+    background-color: rgb(201, 214, 255);
+    border-radius: 2vh;
+    margin-top: 5rem;
+}
+
+
+.messendger-info svg{
+    height: 3.5rem;
+    width: 3.5rem;  
+}
+
+
+.pochta-info p, .phone-info p, .adres-info p, .time-work-info p{
+    transition: color 0.5s ease;
+}
+
+.pochta-info p:hover, .phone-info p:hover, .adres-info p:hover, .time-work-info p:hover{
+    color:rgb(41, 175, 253);
+}
+
+
+
+.left-info {
+    margin-right: 2rem;
+}
+
+.center-info {
+    margin-right: 2rem;
+    margin-left: 2rem;
+}
+
+.right-info {
+    margin-left: 2rem;
+}
+
+.time-work-info {
+    display: inline-flex;
+    background-color: rgb(174, 193, 255);
+    padding: 5%;
+    border-radius: 2vh;  
+}
+
+.time-work-info p {
+    text-align: left;
+}
+
+.time-work-info svg {
+    margin-right: 0.5rem;
+}
+
+.messendger-info {
+    margin-top: 2rem;    
+}
+
+.name-info {
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    background-color: rgb(174, 193, 255);
+    padding: 2%;
+    border-radius: 2vh;
+}
+
+
+
+.map-info {
+    background-color: rgb(174, 193, 255);
+    padding: 5%;
+    border-radius: 2vh;
+    height: 30rem;
+    width: 30rem;
+}
+
+.adres-info {
+    display: inline-flex;
+    background-color: rgb(174, 193, 255);
+    padding: 5%;
+    border-radius: 2vh;  
+    text-align: left;
+}
+
+.adres-info svg {
+    margin-top: -0.4rem;
+    margin-right: 0.5rem;
+}
+
+.time-work-info svg {
+    margin-top: -0.4rem;
+}
+
+.phone-info {
+    display: inline-flex;
+    background-color: rgb(174, 193, 255);
+    padding: 5%;
+    border-radius: 2vh;  
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.pochta-info {
+    margin-top: 1rem;
+    display: inline-flex;
+    background-color: rgb(174, 193, 255);
+    padding: 5%;
+    border-radius: 2vh;  
+    text-align: left;
+}
+
+.phone-info svg {
+    height: 1.3rem;
+    width: 1.3rem;
+    margin-top: -0.1rem;
+    margin-right: 0.2rem;
+}
+
+.pochta-info svg {
+    height: 1.2rem;
+    width: 1.3rem;
+    margin-top: -0.1rem;
+    margin-right: 0.2rem;
+}
+
+.messendger-info {
+    background-color: rgb(174, 193, 255);
+    padding: 1%;
+    border-radius: 2vh;
+}
+
+.info-container {
+    width: 85%;
+}
+
+/*! конец мэина !*/
+
+/*! начала карты !*/
+
+
+.map_container{
+    height: 30vh;
+    width: 100%;
+    background-color: rgb(213, 233, 255);;
+}
+
+/*! конец карты !*/
+
+
+/*! начало всплывающего окна !*/
+.popup-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+#popup_button {
+    border: none;
+    border-radius: 2vh;
+    width: 25vw;
+    height: 7vh;
+    text-decoration: none;
+    color: white;
+    background: rgb(140, 167, 255);
+    box-shadow: 0 1vh 0 #9cbaff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup_phone_tariff {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.popup_phone_tariff-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    width: 600px;
+    height: 400px;
+    text-align: center;
+    overflow: hidden;
+    
+}
+
+.popup_phone_tariff-text {
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+.close_popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+table.popup_table {
+    width: 100%;
+    table-layout: auto;
+    max-height: 100%; /* Ограничиваем высоту таблицы */
+    overflow-y: auto; /* Добавляем вертикальную прокрутку таблицы */
+}
+
+table.popup_table, th, td {
+    padding: 8px;
+    text-align: left;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; 
+}
+
+.popup-container {
+    display: none;
+}
+
+/*! конец всплывающего окна !*/
+
+
+
+
+/*! начала медиа !*/
+
+@media screen and (max-width: 840px) {
+    
+    .info-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        width: 95%;
+    }
+
+    .map-info {
+        height: 15rem !important;
+        width: 15rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .left-info {
+        margin-right: 0 !important;
+        
+    }
+
+    .center-info {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    .right-info {
+        margin-left: 0 !important;
+    }
+
+    .messendger-info {
+        margin-bottom: 1rem !important;
+    }
+
+    .adres-info {
+        margin-top: 1rem !important;
+    }
+
+    .time-work-info {
+        margin-top: 1rem !important;
+    }
+    
+    .logo_head {
+        margin-left: 1rem;
+    }
+
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .main p{
+        font-size: 0.7rem;
+    }
+
+
+    .buttons b {
+        font-size: 0.7rem;
+    }
+
+    #popup_button {
+        width: 40vw;
+    }
+
+    .popup-container {
+        display: flex;
+    }
+
+    #table-tariff {
+        display: none;
+    }
+
+    .button p {
+        font-size: 1rem;
+    }
+
+}
+
+@media screen and (max-width:1100px) {
+
+    .left-info {
+        margin-right: 1.5rem;
+    }
+
+    .center-info {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .right-info {
+        margin-left: 1.5rem;
+    }
+
+    .map-info {
+        height: 20rem;
+        width: 20rem;
+    }
+
+    .messendger-info svg{
+        height: 2.5rem;
+        width: 2.5rem;  
+    }
+
+    .main p{
+        font-size: 0.9rem;
+    }
+
+    .buttons a {
+        height: 2vh;
+        width: 100% !important;
+        margin-bottom: 1rem;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .header {
+        order: 1;
+    }
+
+    .main {
+        order: 2;
+    }
+
+    .map {
+        order: 3;
+    }
+
+    .footer {
+        order: 4;
+    }
+}
+
+@media screen and (min-width:1100px){
+    .header {
+        order: 1;
+    }
+
+    .main {
+        order: 2;
+    }
+
+    .map {
+        order: 3;
+    }
+
+
+    .footer {
+        order: 4;
+    }
+}
+
+/*! конец медиа !*/

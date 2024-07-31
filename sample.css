@@ -1,0 +1,968 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: rgb(213, 233, 255);
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    height: 100vh;
+
+}
+
+.wrapper > * {
+    flex: 1 1 100%;
+}
+
+
+/*! начало шапки !*/
+
+
+#header_plus{
+    display: flex;
+    background: rgb(213, 233, 255);
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    height: 12vh;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background: rgba(128, 128, 128, 0.2); 
+    backdrop-filter: blur(2ch) saturate(180%); 
+    -webkit-backdrop-filter: blur(10px) saturate(180%); 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    box-shadow: 0 1vh 1vh rgba(0, 0, 0, 0.1);
+
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; 
+    font-size: 1.2rem;
+
+}
+
+.header-content p{
+    transition: color 0.5s ease;
+}
+
+.header-content p:hover{
+    color:rgb(41, 175, 253);
+}
+
+.copy-message {
+    position: absolute;
+    font-size: 1rem;
+    margin-top: 5vh;
+    padding: 1rem;
+    border: none;
+    border-radius: 2vh;
+    height: 5vh;
+    text-decoration: none;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    background: rgb(140, 167, 255);
+    box-shadow: 0 1vh 0 #9cbaff;
+    opacity: 0; /* Начальная непрозрачность */
+    visibility: hidden; /* Элемент скрыт */
+    transition: opacity 1s, visibility 1s; /* Переходы для opacity и visibility */
+    z-index: 1000;
+}
+.copy-message.show {
+    opacity: 1; /* Полная непрозрачность */
+    visibility: visible; /* Элемент виден */
+}
+
+.logo_head {
+    margin-right: 2rem;
+}
+
+.logo_head svg {
+    height: 5rem;
+    width: 5rem;
+}
+
+.adres_head {
+    display: flex;
+    align-items: flex-start; 
+    text-align: left;
+    margin-left: 2rem;
+    margin-right: 1.8rem;
+}
+
+
+.adres_head a{
+    text-decoration: none;
+    color: black;
+}
+
+.adres_head svg {
+    height: 2vh;
+    width: 2.5vh;
+    margin-right: 0.3rem;
+    fill:rgb(41, 175, 253);
+}
+
+
+.time_work_head {
+    display: flex;
+    text-align: left;
+    margin-left: 2rem;
+    margin-right: 1.5rem;
+    transition: color 0.5s ease;
+}
+
+.time_work_head svg {
+    height: 2vh;
+    width: 2vh; 
+    margin-right: 0.25rem;
+    fill:rgb(41, 175, 253);
+}
+
+.time_work_head p{
+    cursor: pointer;
+}
+
+.messendger_head {
+    margin-left: 2rem;   
+}
+
+.messendger_head a{
+    text-decoration: none;
+}
+
+.messendger_head svg {
+    height: 5vh;
+    width: 5vh;
+    margin-right: 0rem; 
+    
+}
+
+.phone_number_head {
+    display: flex;
+    align-items: flex-start; 
+    margin-left: 2rem;
+    fill:rgb(41, 175, 253);
+}
+
+
+.phone_number_head a{
+    text-decoration: none;
+    color: black;
+}
+
+.phone_number_head svg {
+    height: 3.5vh;
+    width: 3.5vw;
+    margin-top: -0.5rem;
+
+}
+
+.call_app svg {
+    height: 5vh;
+    width: 5vw;
+    margin-top: -0.3rem;
+
+}
+
+
+.call_app {
+    margin-left: 1rem;
+}
+
+
+.container-phone-svg {
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.container-phone-svg svg {
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.window_phone {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.window_content_phone {
+    position: fixed;
+    left: -55vw; /* Initially off-screen */
+    top: 0;
+    background-color: #fefefe;
+    padding: 2vw 2vw 0 0;
+    border: 1px solid #888;
+    border-radius: 0 2vh 2vh 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 55vw;
+    overflow-y: auto;
+    transition: left 0.5s ease-in-out;
+    padding-left: 1%;
+}
+
+.window_content_phone.show {
+    left: 0; 
+}
+
+#window_text h1{
+    text-align: center;
+}
+
+#window_text h4{
+    text-align: center;
+    color: #202020;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#transition_button {
+    width: 48vw;
+    height: 7vh;
+}
+
+.window-menu-content h2 {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.window-menu-content p {
+    text-align: left;
+    font-size: 0.8rem;
+}
+
+.logo-phone-window {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+
+.logo-phone-window svg {
+    padding: 2%;
+    background-color: rgb(201, 214, 255);
+    border-radius: 2vh;
+    height: 10rem;
+    width: 10rem;
+}
+.window-menu-content {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+}
+
+.menu-phone-title {
+    margin-top: 2rem;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.menu-transition-bt {
+    margin-top: 1rem;
+}
+
+.menu-transition-bt button:first-child {
+    border: 2px solid rgb(213, 233, 255, 0.9) !important;
+    border-radius: 0 2vh 0 0 !important; 
+    border-bottom: none !important;
+    padding: 2% !important;
+
+}
+
+.menu-transition-bt button{
+    border: 2px solid rgb(213, 233, 255, 0.9) !important;
+    border-radius: 0 !important; 
+    padding: 2% !important;
+    border-bottom: none !important;
+}
+
+.menu-transition-bt button:last-child {
+    border: 2px solid rgb(213, 233, 255, 0.9) !important;
+    border-radius: 0 0 2vh 0 !important; 
+    padding: 2% !important;
+
+}
+
+.window {
+    display: none;
+    position: fixed;
+    z-index: 100000;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.window-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 5vh;
+    border: 1px solid #888;
+    border-radius: 2vh;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: fadeIn 0.5s;
+    margin-top: 20vh;
+    align-items: center;
+}
+
+#window_text h1{
+    text-align: center;
+}
+#window_text h4{
+    text-align: center;
+    color: #202020;
+}
+
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.checkbox-container {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+#submitButton {
+    font-size: 1.2rem;
+    margin-top: 5vh;
+    border: none;
+    border-radius: 2vh;
+    height: 7vh;
+    text-decoration: none;
+    color: white;
+    background: rgb(140, 167, 255);
+    box-shadow: 0 1vh 0 #9cbaff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    cursor: not-allowed;
+}
+
+#submitButton:enabled {
+    cursor: pointer;
+    padding: 5%;
+    font-size: 1.2rem;
+    background: #587ccf;
+    box-shadow: 2vh 1vh 2vh #98b1ec;
+}
+
+.close_app_window {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close_app_window:hover,
+.close_app_window:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#send_meta {
+    font-size: 1.2rem;
+    margin-top: 5vh;
+    border: none;
+    border-radius: 2vh;
+    height: 7vh;
+    text-decoration: none;
+    color: white;
+    background: rgb(140, 167, 255);
+    box-shadow: 0 1vh 0 #9cbaff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#send_meta:hover {
+    font-size: 1.2rem;
+    background: #587ccf;
+    box-shadow: 2vh 1vh 2vh #98b1ec;
+    position: relative;
+}
+
+#send_meta p {
+    margin-right: 2rem;
+    margin-left: 2rem;
+}
+
+.send_meta_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.window-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox-container p{
+    margin-top: 0.2rem;
+    font-size: 1rem;
+    margin-left: 2rem;
+}
+
+.checkbox-container {
+    margin-top: 1rem;
+    display: inline-flex;
+}
+
+.checkbox-container a{
+    color: #000;
+}
+
+
+/*! конец шапки !*/
+
+
+
+/*! начало мэина !*/
+.main {
+    padding: 2%;
+    background-color: rgb(235, 245, 255);
+    margin-bottom: 2rem;
+}
+
+#transitoin-bt {
+    justify-content: center;
+    display: flex;
+}
+
+#transitoin-bt ul {
+    margin-right: 6%;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+
+#transitoin-bt button {
+    text-decoration: none;
+    text-align: center; 
+    margin: 0 1rem;
+    font-size: 2vh;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 50vh;
+    transition: color 0.5s ease, border-color 0.5s ease;
+
+}
+
+
+#transitoin-bt button:hover {
+    color: rgb(41, 175, 253);
+    border-color: rgb(41, 175, 253); /* Изменяем цвет рамки при наведении */
+}
+
+
+
+/*! конец мэина !*/
+
+
+
+
+/*! начало футера !*/
+.footer {
+    background-color: rgb(201, 214, 255);
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; 
+    width: 100%;
+    font-size: 1rem;
+    padding: 1%;
+}
+
+.right-footer p{
+    transition: color 0.5s ease;
+}
+
+.right-footer p:hover{
+    color:rgb(41, 175, 253);
+}
+
+.adres-footer p{
+    transition: color 0.5s ease;
+}
+
+.adres-footer p:hover{
+    color:rgb(41, 175, 253);
+}
+
+
+.left-footer {
+    margin-right: 5rem;
+    align-items: end;
+    margin-left: -9rem;
+}
+
+
+.adres-footer {
+    display:inline-flex;
+    margin-left: 12rem;
+    margin-bottom: 2vh;
+}
+
+
+.adres-footer a{
+    text-decoration: none;
+    color: black;
+    text-align: right;
+
+}
+
+.adres-footer svg {
+    height: 1.7vh;
+    width: 1.7vh;
+    fill:rgb(41, 175, 253);
+    margin-right: 0.25rem;
+}
+
+.info-footer {
+    text-align: right;
+    margin-bottom: 2vh;
+}
+
+.piar-footer {
+    text-align: right;
+}
+
+.piar-footer a{
+    transition: color 0.5s ease;
+    color: #000;
+}
+.piar-footer a:hover{
+    text-decoration:rgb(41, 175, 253);
+    color:rgb(41, 175, 253);
+}
+
+
+
+.logo-footer {
+    margin-right: 5rem;
+    margin-left: 5rem;
+}
+
+.logo-footer svg{
+    height: 8rem;
+    width: 8rem;
+}
+
+.right-footer {
+    display: block;
+    margin-left: 5rem;
+}
+
+.contact-footer{ 
+    display: block;
+    margin-bottom: 2vh;
+    margin-top: 1.5vh;
+}
+
+
+.phone-footer {
+    display: flex;
+    align-items: flex-start; 
+    text-align: left;
+}
+
+.phone-footer a{
+    text-decoration: none;
+    color: black;
+}
+
+.phone-footer svg {
+    height: 2vh;
+    width: 2vw;
+    fill:rgb(41, 175, 253);
+}
+
+.pochta-footer {
+    display: flex;
+    align-items: flex-start; 
+    text-align: left;
+    margin-top: 0.5vh;
+}
+
+.pochta-footer a{
+    text-decoration: none;
+    color: black;
+    margin-left: 0.25vw;
+}
+
+.pochta-footer svg {
+    height: 2vh;
+    width: 2vw;
+    fill:rgb(41, 175, 253);
+}
+
+.messenger-footer {
+    margin-right: 10rem;
+    margin-bottom: 2vh;
+}
+
+.messenger-footer svg {
+    height: 5vh;
+    width: 5vh;
+    margin-right: 0rem; 
+    
+}
+
+.messenger-footer a{
+    text-decoration: none;
+}
+
+.com-politicy-footer {
+    text-align: left;
+}
+
+.com-politicy-footer a{
+    color: #000;
+}
+
+.com-politicy-footer a:hover{
+    text-decoration:rgb(41, 175, 253);
+}
+
+
+/*! конец футера !*/
+
+
+
+/*! начала медиа !*/
+@media screen and (max-width: 840px) {
+
+    .logo_head svg {
+        height: 4rem;
+        width: 4rem;
+    }
+
+    .logo-phone-window svg {
+        height: 7rem;
+        width: 7rem;
+    }   
+
+    .left-footer {
+        margin-left: 0rem;
+    }
+
+    #transitoin-bt {
+        display: none;
+    }
+
+    .header {
+        display: flex;
+        width: 100%;
+        background: rgba(128, 128, 128, 0.2); 
+        backdrop-filter: blur(2ch) saturate(180%); 
+        -webkit-backdrop-filter: blur(10px) saturate(180%); 
+        border: 1px solid rgba(255, 255, 255, 0.2); 
+        box-shadow: none;
+    }
+
+    .header-content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    .adres_head,
+    .time_work_head,
+    .messendger_head,
+    .phone_number_head,
+    .call_app {
+        display: none !important;
+    }
+
+    .container-phone-svg {
+        display: block !important; 
+    }
+    .container-phone-svg svg {
+        display: flex !important;
+        width: 4.5vw !important;
+        height: 4.5vh !important;
+    }
+
+
+    #menu_phone {
+        margin-right: 3rem;
+        margin-top: 0rem;
+    }
+
+    #cross_phone {
+        margin-right: 3rem;
+        margin-top: -2rem;
+    }
+
+    .footer-content * {
+        text-align: center;
+        justify-content: center; 
+        align-items: center; 
+    }
+    
+    .footer-content {
+        padding: 2%;
+        font-size: 0.75rem;
+        flex-direction: column;
+    }
+    
+    .left-footer {
+        margin-right: 0;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .logo-footer {
+        margin-left: 0;
+        margin-right: 0;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .right-footer {
+        margin-left: 0;
+    }
+
+    .adres-footer {
+        margin-left: -1rem;
+    }
+
+    .adres-footer svg {
+        margin-top: -2rem;
+    }
+
+    .messenger-footer {
+        margin-right: 0;
+    }
+}
+
+
+
+
+@media screen and (max-width:1100px) {
+    #transitoin-bt button {
+        font-size: 1rem;
+        margin: 0 0.5rem;
+    }
+
+
+    .container-phone-svg {
+        display: none;
+    }
+
+    .messenger-footer svg {
+        height: 4vh;
+        width: 4vh;
+        margin-right: 0rem; 
+        
+    }
+
+    .footer-content {
+        font-size: 0.8rem;
+    }
+
+    .adres_head {
+        margin-left:1.5rem;
+        margin-right: 1.3rem;
+    }
+
+    .time_work_head {
+        margin-left:1.5rem;
+        margin-right: 1rem;
+    }
+    
+    .messendger_head {
+        margin-left: 1.5rem;
+    }
+
+    .phone_number_head {
+        margin-left:1.5rem;
+    }
+
+    .call_app svg {
+        height: 4vh;
+        width: 4vw;
+    }
+    .logo_head {
+        height: 4vh;
+        width: 4vw;
+        margin-top: -2.5rem;
+    }
+
+    .call_app {
+        height: 4vh;
+        width: 4vw;
+    }
+
+    .header-content {
+        font-size: 1rem;
+    }
+
+    .header_plus{
+        order: 2;
+        height: 12vh;
+    }
+
+    .main{
+        order: 3;
+    }
+    
+
+    .footer{
+        order: 4;
+    }
+
+    .window-content{
+        max-width: 60vw;
+        max-height: 45vh;
+    }
+}
+
+@media screen and (min-width:1100px) {
+    .window-content{
+        max-width: 40vw;
+        max-height: 45vh;
+    }
+
+
+    .container-phone-svg {
+        display: none;
+    }
+
+    .phone_number_head svg {
+        margin-right: -0.65rem;
+    }
+    
+    .header_plus{
+        order: 2;
+        height: 12vh;
+    }
+    .main{
+        order: 2;
+    }
+    
+
+    .footer{
+        order: 3;
+    }
+}
+
+
+
+/*! конеец медиа !*/

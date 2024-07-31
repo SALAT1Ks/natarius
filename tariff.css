@@ -1,0 +1,249 @@
+/*! начало мэина !*/
+.tariff-menu {
+    display: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.location-tariff{
+    display: flex;
+    justify-content: center;
+}
+
+.location-bt-price {
+    display: flex;
+    justify-content: center;
+}
+.tariff-container{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    background-color:rgb(201, 214, 255);;
+    padding: 1%;
+    border-radius: 2vh;
+    width: 75%;
+}
+
+#title{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+#price_list {
+    border: none;
+    border-radius: 2vh;
+    width: 12rem;
+    height: 4.5rem;
+    text-decoration: none;
+    color: white;
+    background: rgb(140, 167, 255);
+    box-shadow: 0 1vh 0 #9cbaff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#price_list:hover {
+    background: #587ccf;
+    box-shadow: 2vh 1vh 2vh #98b1ec;
+    position: relative;
+
+}
+
+#price_list a.download-btn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+}
+
+
+.tariff {
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    max-width: 90%;
+}
+
+.tariff p {
+    text-align: left;
+    text-align: start;
+    margin: 1vh;
+}
+
+.tariff-item {
+    background-color: #ffffff;
+    border: 0.25vh solid none;
+    margin-bottom: 1vh;
+    overflow: hidden;
+    border-radius: 2vh;
+}
+
+.tariff-title {
+    background-color: #ffffff;
+    background-color: #f1f1f1;
+    padding: 1vh;
+    cursor: pointer;
+}
+
+.tariff-content {
+    background-color: #ffffff;
+    padding: 1vh;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.tariff-content table {
+    background-color: #ffffff;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-top: 2vh;
+}
+
+
+.tariff-content th, .tariff-content td {
+    background-color: #ffffff;
+    border: 0.125vh solid #ccc;
+    padding: 1vh;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; 
+}
+
+
+
+/*! конец мэина !*/
+
+/*! начало всплывающего окна !*/
+.popup-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+#popup_button {
+    border: none;
+    border-radius: 2vh;
+    width: 25vw;
+    height: 7vh;
+    text-decoration: none;
+    color: white;
+    background: rgb(140, 167, 255);
+    box-shadow: 0 1vh 0 #9cbaff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup_phone_tariff {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.popup_phone_tariff-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    width: 600px;
+    height: 400px;
+    text-align: center;
+    overflow: hidden;
+    
+}
+
+.popup_phone_tariff-text {
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.close_popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+.popup-container {
+    display: none;
+}
+
+/*! конец всплывающего окна !*/
+
+
+/*! начала медиа !*/
+
+@media screen and (max-width: 840px) {
+    #popup_button {
+        width: 40vw;
+    }
+
+    .popup-container {
+        display: flex;
+    }
+
+    #table-tariff {
+        display: none;
+    }
+    
+    .main p{
+        font-size: 2rem;
+    }
+
+    .main h1{
+        font-size: 1.2rem;
+    }
+
+    #price_list {
+        width: 40vw;
+        height: 7vh;
+    }
+
+    .tariff-container {
+        width: 90%;
+    }
+
+    .tariff {
+        width: 95%;
+    }
+    
+}
+
+@media screen and (max-width:1100px) {
+    .main p{
+        font-size: 0.7rem;
+    }
+
+
+}
+
+@media screen and (min-width:1100px){
+
+}
+
+
+/*! конец медиа !*/
